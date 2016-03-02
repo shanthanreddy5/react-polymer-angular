@@ -27,10 +27,7 @@ angular.module('commentBox', ['commentList', 'commentForm'])
               console.log('data',data);
               angular.forEach(scope.data,function(item,index){
                 if(item.date != undefined){
-                  var  milli = new Date(item.date).getTime();
-                  console.log("date in milli",milli);
-                  scope.data[index].date = milli;
-
+                  scope.data[index].date = timeSince(item.date);
                 }
 
               });
@@ -40,6 +37,34 @@ angular.module('commentBox', ['commentList', 'commentForm'])
               console.log(status);
             });
         };
+        function timeSince(date) {
+
+            var seconds = Math.floor((new Date() - new Date(date)) / 1000);
+            var interval = Math.floor(seconds / 31536000);
+
+            if (interval > 1) {
+                return interval + " years ago";
+            }
+            interval = Math.floor(seconds / 2592000);
+            if (interval > 1) {
+                return interval + " months ago";
+            }
+            interval = Math.floor(seconds / 86400);
+            if (interval > 1) {
+                return interval + " days ago";
+            }
+            interval = Math.floor(seconds / 3600);
+            if (interval > 1) {
+                return interval + " hours ago";
+            }
+            interval = Math.floor(seconds / 60);
+            if (interval > 1) {
+                return interval + " minutes ago";
+            }
+
+            return Math.floor(seconds) + " seconds ago";
+
+        }
         var handleCommentSubmit = function (event, data) {
           var comment = data;
           scope.data.concat([comment]);
