@@ -16,7 +16,10 @@ angular.module('commentForm', [])
                 '</form>',
       restrict: 'E',
       link: function postLink(scope, element, attrs) {
-        scope.comment = {};
+        scope.comment = {
+          date:new Date()
+        };
+
         scope.submitComment = function(){
           var comment = scope.comment;
           if (!comment.msg || !comment.author) {

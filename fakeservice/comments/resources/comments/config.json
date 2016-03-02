@@ -16,6 +16,22 @@
 			"required": true,
 			"id": "msg",
 			"order": 1
+		},
+		"test": {
+			"name": "test",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "test",
+			"order": 2
+		},
+		"date": {
+			"name": "date",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "date",
+			"order": 3
 		}
 	}
 }
