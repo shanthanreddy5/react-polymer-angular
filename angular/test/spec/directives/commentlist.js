@@ -14,8 +14,8 @@ describe('Directive: comment', function () {
 
   it('should render the comments', function (){
     var comments = [
-      {'author': 'Santiago', 'msg': 'Msg 1', id: 1},
-      {'author': 'Pablo', 'msg': 'Msg 2', id: 2}
+      {'author': 'Santiago', 'msg': 'Msg 1', id: 1, 'date' : '1 year ago'},
+      {'author': 'Pablo', 'msg': 'Msg 2', id: 2, 'date' : '1 year ago'},
     ];
     scope.comments = comments;
     element = angular.element('<comment-list comments="comments"></comment-list>');

@@ -24,7 +24,6 @@ angular.module('commentBox', ['commentList', 'commentForm'])
           $http.get(scope.url)
             .success(function(data, status, headers, config){
               scope.data = data;
-              console.log('data',data);
               angular.forEach(scope.data,function(item,index){
                 if(item.date != undefined){
                   scope.data[index].date = timeSince(item.date);
